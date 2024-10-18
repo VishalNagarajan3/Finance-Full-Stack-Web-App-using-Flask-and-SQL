@@ -9,7 +9,12 @@ from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 from helpers import errorPage, login_required, lookup, usd
+from dotenv import load_dotenv
 
+
+load_dotenv()
+os.environ["API_KEY"] = "f8c4f7effd7c4ad3aa15ca14e35523d4"
+API_KEY="f8c4f7effd7c4ad3aa15ca14e35523d4"
 # Configure application
 application = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -119,8 +124,11 @@ sold_schema = SoldSchema(many=True)
 # Make sure API key is set
 os.environ.get("API_KEY")
 
-if not os.environ.get("API_KEY"):
+def new_func():
     raise RuntimeError("API_KEY not set")
+
+if not os.environ.get("API_KEY"):
+    new_func()
 
 @application.route("/")
 def landing():
