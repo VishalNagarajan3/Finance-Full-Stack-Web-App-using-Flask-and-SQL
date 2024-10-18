@@ -510,7 +510,7 @@ def sell():
         now = datetime.now()
         time = now.strftime("%d/%m/%Y %H:%M:%S")
 
-        
+    
         log_sale = Sold(user, time, symbol, shares, price)
         db.session.add(log_sale)
         db.session.commit()
