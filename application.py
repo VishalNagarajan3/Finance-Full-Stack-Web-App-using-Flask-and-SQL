@@ -271,7 +271,7 @@ def buy():
             print("current shares", current_shares)
             
 
-            
+    
             new_shares = shares + current_shares
             print("Total shares now:", new_shares)
 
